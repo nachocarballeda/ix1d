@@ -1,0 +1,30 @@
+Introduccion
+
+
+Desarrollo
+
+    La Dirección de Calidad Educativa de la facultad de ingeniería de la UBA desarrolla la actividad “Ingenieros por un día”, destinada a estudiantes avanzados de las escuelas secundarias de la ciudad y conurbano bonaerense.
+    Los participantes del encuentro simulan ser ingenieros convocados para resolver un problema: Eventuales inundaciones en la ciudad. A lo largo de la jornada, enfrentan distintas tareas ingenieriles: búsqueda y análisis de causas y alternativas de solución, toma de decisiones y avances sobre el diseño de proyectos.
+    En el presente documento se desarrolla la actividad orientada a sistemas de alerta temprana.
+
+Actividad en si
+
+    La actividad planteada tiene como objetivo controlar el nivel de agua en un cámara subterranea en la cual se encuentra un transformador de alta tensión. La experiencia es realizada mediante una modelización a escala de dicha cámara. Para la misma se utilizan dos recipientes transparentes que contienen agua, dos sensores del tipo ultrasónico, y dos bombas de agua unidireccionales.
+    Para regular el nivel de agua, se activa una bomba para transferir agua de un contenedor a otro. La información de un sensor es proporcionada a los participantes para controlar la bomba extractora de un contenedor, mientras que la otra bomba emula las condiciones impuestas por el medio, por lo que los participantes no tienen control sobre ella.
+    Los participantes deben diseñar el algoritmo de control para mantener el nivel de agua en un rango deseado, e informar el nivel a una subestación meteorológica. Se pide que el nivel de agua no llegue a donde se encuentra el sensor, y a su vez que se mantenga cebada la bomba.
+    Para motivar la participación, se plantea un pliego licitatorio en el cual se establecen las condiciones mínimas que debe cumplir cada grupo en su proyecto. Luego de elaborar una solución en respuesta al pliego propuesto, los participantes exponen su idea frente a los demas grupos, y frente a un tutor externo a la expriencia, que se presenta como el convocador de la licitación. La idea es exponer a los participantes a una situación en la cual deban explicar las desiciones tomadas, justificando porque se optó por una solución determinada entre todas las posibles.
+
+
+Resultados
+    
+    Hasta la fecha se realizaron tres instancias de la actividad. Al final de cada una de ellas se les pidió a los participantes que llenen una encuesta sobre la experiencia.
+    La gran mayoría de los participantes sostiene que la jornada les permitió afirmar su elección por la carrera, mientras que otros afirman que favoreció la importancia del trabajo interdisciplinario para el análisis y la propuesta de soluciones. 
+    La mayor parte de los participantes valoraron la actividad en general y el tratamiento dado a la temática, y afirmaron que la misma les permitió incrementar el conocimiento y  interés por las ingenierías.
+
+Conclusiones
+
+
+
+Referencias bibliograficas
+
+
