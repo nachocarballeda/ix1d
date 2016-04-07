@@ -6,13 +6,12 @@ zigbee = serial.Serial('/dev/ttyUSB0', 38400 ) # Establish the connection on a s
 def actualizar_led():
     M = medir_m()
     print M 
-    if   M >= 200:
+    if   M < 200 and M >= 180:
         led_verde()
-    elif M >= 120:
+    elif M >= 200:
         led_amarillo()
-    else :
+    elif M <= 50:
         led_rojo()
-
 
 def medir_m():  
     if zigbee.readable():
@@ -73,10 +72,14 @@ if __name__=='__main__':
         actualizar_led()
         sleep(1)
         M = medir_m()
-        if M <= 20:
+        actualizar_led()
+        if M <= 180:
             while not M > 200:
-               #encender_bomba_b()
+                M = medir_m()
+                encender_bomba_a()
                 sleep(1)
                 actualizar_led()
                 sleep(0.5)
-        #apagar_bomba_b()
+            apagar_bomba_a()
+            sleep(200)             
+
