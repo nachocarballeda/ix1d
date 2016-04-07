@@ -18,7 +18,7 @@ char dato_entrante;
 void setup() {
   // initialize digital pin 13 as an output.
   
-  Serial.begin(38400); // se tiene que usar esta velocidad SI o SI
+  Serial1.begin(38400); //for  TTL in arduino Leonardo use Serial1. se tiene que usar esta velocidad SI o SI
   
   pinMode(13, OUTPUT);
   pinMode(RELAY1, OUTPUT);
@@ -35,11 +35,8 @@ void setup() {
 void loop(){
   
     leerSensores(); 
-    char dato_entrante = Serial.read();
+    char dato_entrante = Serial1.read();
     if(dato_entrante == 'A'){
-      encender(BOMBA_A);
-      Serial.write(dato_entrante);
-      digitalWrite(13,HIGH);
       encender(BOMBA_A);
     } 
     else if(dato_entrante == 'B'){
@@ -48,9 +45,6 @@ void loop(){
     
     else if(dato_entrante == 'C'){
       apagar(BOMBA_A);
-      Serial.write(dato_entrante);
-      digitalWrite(13,LOW);
-      apagar(BOMBA_A);
     }
     
     else if(dato_entrante == 'D'){
@@ -58,38 +52,30 @@ void loop(){
     }
     
     else if(dato_entrante == 'M'){
-      Serial.write(sensor_a);
+      Serial1.println(sensor_a);
     }
     
     else if(dato_entrante == 'N'){   
-      Serial.write(sensor_b);
+      Serial1.println(sensor_b);
     }
-  //Serial.println("ok");
-  delay(1000);  
-  leerSensores();
-  
+    
+    else if(dato_entrante == 'R'){   
+      prenderLedsTanque1(3);
+    }
+    
+    else if(dato_entrante == 'E'){   
+      prenderLedsTanque1(2);
+    }
+    
+    else if(dato_entrante == 'W'){   
+      prenderLedsTanque1(1);
+    }
+    
+    else if(dato_entrante == 'Q'){   
+      prenderLedsTanque1(0);
+    }
+  delay(200);   
 }
-/*
-  if(sensor_a > 40)
-    prenderLedsTanque1(1);
-  else if(sensor_a > 30)
-    prenderLedsTanque1(2);
-  else if(sensor_a > 20)
-    prenderLedsTanque1(3);
-  else
-    sonarAlarma();
-
-//  digitalWrite(13, HIGH);   // turn the LED on (HIGH is the voltage level)
-  encender(BOMBA1);
-  delay(100);              // wait for a second
-  encender(BOMBA1);
-  delay(100);              // wait for a second
-  encender(BOMBA2);
-  delay(100);              // wait for a second
-  encender(BOMBA2);
-  delay(100);              // wait for a second
-*/
-
 
 
 void encender(int bomba){
@@ -111,15 +97,15 @@ void apagar(int bomba){
 }
 
 void escribirSerial(byte outByte){
-  if (Serial.available()) {
+  if (Serial1.available()) {
 //  int inByte = Serial.read();
-  Serial.write(outByte);
+  Serial1.write(outByte);
   }
 }
 
 void escribirZigbee(char outChar){
-  if (Serial.available()) {
-    Serial.write(outChar);
+  if (Serial1.available()) {
+    Serial1.write(outChar);
   }
 }
 
@@ -165,4 +151,10 @@ void sonarAlarma (){
 
 }
 
+/*The Arduino Leonardo 
+ * board uses Serial1 to 
+ * communicate via TTL (5V) 
+ * serial on pins 0 (RX) and 1 (TX). 
+ * Serial is reserved for USB CDC communication. 
+ */
 
