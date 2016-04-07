@@ -5,11 +5,12 @@ zigbee = serial.Serial('/dev/ttyUSB0', 38400 ) # Establish the connection on a s
 
 def actualizar_led():
     M = medir_m()
-    if M < 160 and M >= 230:
+    print M 
+    if   M >= 200:
         led_verde()
-    if M < 145 and M >= 160:
+    elif M >= 120:
         led_amarillo()
-    if M < 145 :
+    else :
         led_rojo()
 
 
@@ -28,30 +29,37 @@ def medir_n():
         return N
 
 def encender_bomba_a():
+    print "BOMBA A encendida"
     if zigbee.readable():
         zigbee.write('A')
 
 def encender_bomba_b():
+    print "BOMBA B encendida"
     if zigbee.readable():
         zigbee.write('B')
 
 def apagar_bomba_a():
+    print "BOMBA A apagada"
     if zigbee.readable():
         zigbee.write('C')
 
 def apagar_bomba_b():
+    print "BOMBA B apagada"
     if zigbee.readable():
         zigbee.write('D')
 
 def led_rojo():
+    print "LED ROJO"
     if zigbee.readable():
         zigbee.write('R')
 
 def led_amarillo():
+    print "LED AMARILLO"
     if zigbee.readable():
         zigbee.write('E')
 
 def led_verde():
+    print "LED VERDE"
     if zigbee.readable():
         zigbee.write('W')
 
@@ -60,15 +68,15 @@ def led_apagar():
         zigbee.write('Q')
 
 if __name__=='__main__':
+    print "Codigo IX1D \n"
     while True:
+        actualizar_led()
+        sleep(1)
         M = medir_m()
-        if M <=140:
-            while not M > 220:
-                encender_bomba_b()
+        if M <= 20:
+            while not M > 200:
+               #encender_bomba_b()
                 sleep(1)
-                M = medir_m()
-                sleep(0.5)
                 actualizar_led()
                 sleep(0.5)
-        apagar_bomba_b()
-        sleep(1)
+        #apagar_bomba_b()

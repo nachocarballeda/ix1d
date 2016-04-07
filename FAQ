@@ -1,0 +1,32 @@
+¿Y como conecto los cablecitos de los leds "ALARMA" ?
+Mirando los 5 pines de frente, teniendo el led verde para arriba.
+0 - VERDE
+1 - VCC
+2 - NC
+3 - ROJO
+4 - AMARILLO
+
+¿Como van los switchs de los ZigBee ?
+MASTER
+1 - 0
+2 - 0
+3 - 0
+4 - 0
+5 - 1
+6 - 1
+7 - 1
+8 - 0
+
+SLAVE
+1 - 0
+2 - 0
+3 - 0
+4 - 0
+5 - 1
+6 - 0
+7 - 1
+8 - 0
+
+Conecte un solo Zigbee al conversor USB-SERIE pero no veo que el led titile cuando envio datos ¿Que esta pasando?
+El modulo Zigbee no va a enviar datos si el modulo esclavo no se encuentra conectado.
+
